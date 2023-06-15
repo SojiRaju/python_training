@@ -2,11 +2,7 @@
 name = "api-testing"
 version = "0.1.0"
 description = ""
-<<<<<<< HEAD
-authors = ["Soji Raju <you@example.com>"]
-=======
 authors = ["Soji Raju <soji.raju@edstem.com>"]
->>>>>>> 6911a21 (soji|api testing)
 readme = "README.md"
 packages = [{include = "api_testing"}]
 
