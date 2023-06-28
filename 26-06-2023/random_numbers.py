@@ -236,3 +236,101 @@ def client_details(token, url, client_id):
 
 client_details(token=access_token(), url="https://dev-api.pttapp.com/api/",
                client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+def trust_balance(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "page": "",
+        "size": "",
+        "currency": "GBP"
+    }
+
+    print(payload)
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/trust-balance?", json=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        # Pretty-print the JSON response
+        formatted_json = json.dumps(data, indent=4)
+        # Print the formatted JSON
+        print(f"trust_balance is: {formatted_json}")
+
+    else:
+        print(f"Error: {response.status_code}")
+trust_balance(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def trust_balance_export(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "page": "",
+        "size": "",
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/trust-balance/export?", json=payload, headers=headers)
+    if response.status_code == 202:
+        data = response.json()
+        print(data)
+
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+trust_balance_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def client_file_report(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "fromDate": "2022-02-24",
+        "toDate": "2022-02-24",
+        "page": "",
+        "size": ""
+    }
+
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/client-files?", json=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        # Pretty-print the JSON response
+        formatted_json = json.dumps(data, indent=4)
+        # Print the formatted JSON
+        print(f"client_file_report is: {formatted_json}")
+
+    else:
+        print(f"Error: {response.status_code}")
+client_file_report(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def client_file_export(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "fromDate": "2022-02-24",
+        "toDate": "2022-02-24",
+        "page": "",
+        "size": ""
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/client-files/export?", json=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Success: {response.status_code}")
+
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+client_file_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+

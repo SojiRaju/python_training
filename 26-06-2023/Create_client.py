@@ -9,6 +9,7 @@ def access_token():
   response = requests.post(url + "login", json=payload)
   data = response.json()
   token = data["authenticationResult"]["AccessToken"]
+  print(token)
   return token
 access_token()
 def basic_info(token, url):
