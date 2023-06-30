@@ -334,3 +334,139 @@ def client_file_export(token, url, client_id):
 client_file_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
+def weekly_fortnightly_report(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "fromDate": "2023-02-24",
+        "toDate": "2024-02-24",
+        "currency": "GBP"
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/weekly-fortnightly?", params=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        # Pretty-print the JSON response
+        formatted_json = json.dumps(data, indent=4)
+        # Print the formatted JSON
+        print(f"client_file_report is: {formatted_json}")
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+weekly_fortnightly_report(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def weekly_fortnightly_export(token, url, client_id):
+    payload = {
+        'client': '649bdf5306afa8b29ace0648',
+        'fromDate': '2022-02-24',
+        'toDate': '2022-02-24',
+        'currency': 'GBP'
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/weekly-fortnightly/export", params=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Success: {response.status_code}")
+
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+weekly_fortnightly_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def bank_reconciliation(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "currency": "GBP",
+        "fromDate": "2023-02-24",
+        "toDate": "2024-02-24"
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/bank-reconciliation?", params=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        # Pretty-print the JSON response
+        formatted_json = json.dumps(data, indent=4)
+        # Print the formatted JSON
+        print(f"bank_reconciliation_report is: {formatted_json}")
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+bank_reconciliation(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+def bank_reconciliation_export(token, url, client_id):
+    payload = {
+        'client': '649bdf5306afa8b29ace0648',
+        'currency': 'GBP',
+        'fromDate': '2022-02-24',
+        'toDate': '2022-02-24'
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/bank-reconciliation/export?", params=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Bank_reconciliation_export_Success: {response.status_code}")
+
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+bank_reconciliation_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def banking_claim_summary(token, url, client_id):
+
+    payload = {
+        "client": f"{client_id}",
+        "fromDate": "2023-02-24",
+        "toDate": "2024-02-24",
+        "page": "1",
+        "size": "100"
+
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/banking-claim-summary?", params=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        # Pretty-print the JSON response
+        formatted_json = json.dumps(data, indent=4)
+        # Print the formatted JSON
+        print(f"banking_claim_summary is: {formatted_json}")
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+banking_claim_summary(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+def banking_claim_summary_export(token, url, client_id):
+    payload = {
+        'client': '649bdf5306afa8b29ace0648',
+        'fromDate': '2022-02-24',
+        'toDate': '2022-02-24'
+    }
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "reports/banking-claim-summary/export?", params=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"Banking_claim_summary_export_Success: {response.status_code}")
+
+    else:
+        print(f"Error: {response.status_code}")
+        data = response.json()
+        print(data)
+banking_claim_summary_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
