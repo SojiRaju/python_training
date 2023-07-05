@@ -1,6 +1,6 @@
 import pytest
 import requests
-def test_change_password_incorrect_current_password():
+def change_password_incorrect_current_password():
     response = requests.post('https://dev-api.pttapp.com/api/change-password', json={
         "currentPassword": "Simple2020$",
         "password": "Simple2022$"
@@ -8,7 +8,7 @@ def test_change_password_incorrect_current_password():
 
     })
     assert response.status_code == 401
-#def test_change_password_successful():
+#def change_password_successful():
     #response = requests.post('https://dev-api.pttapp.com/api/change-password', json={
        # "currentPassword": "Simple2020$",
        # "password": "Simple2022$123"

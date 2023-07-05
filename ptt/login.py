@@ -1,13 +1,14 @@
 import requests
+import pytest
 
-payload = {"username": "nismal", "password": "Simple2022$"}
+payload = {"username": "anisha", "password": "Anisha@12345"}
 url = "https://dev-api.pttapp.com/api/"
 response = requests.post(url + "login", json=payload)
 data = response.json()
 access_token = data["authenticationResult"]["AccessToken"]
 print("AccessToken is: " + access_token)
-expected_username = "nismal"
-expected_password = "Simple2022$"
+expected_username = "anisha"
+expected_password = "Anisha@12345"
 
 
 def login(username, password):
@@ -27,7 +28,7 @@ def login(username, password):
   else:
     print("Login failed - invalid credentials")
 
-login("nismal", "Simple2022$")
+login("anisha", "Anisha@12345")
 
 
 
