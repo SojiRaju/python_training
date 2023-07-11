@@ -22,3 +22,48 @@ def ytd_client(token, url):
 
 
 ytd_client(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
+
+def dashboard_details(token, url):
+  headers = {
+    'Authorization': f'Bearer {access_token()}'
+  }
+  response = requests.get(url + "dashboard/details?currency=EUR", headers=headers)
+  if response.status_code == 200:
+    data = response.json()
+    print(data)
+  else:
+    print(f"Error: {response.status_code}")
+
+
+dashboard_details(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
+
+def clients_category(token, url):
+  headers = {
+    'Authorization': f'Bearer {access_token()}'
+  }
+  response = requests.get(url + "dashboard/clients-category", headers=headers)
+  if response.status_code == 200:
+    data = response.json()
+    print(data)
+  else:
+    print(f"Error: {response.status_code}")
+
+
+clients_category(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
+
+def upload_transactions(token, url):
+  headers = {
+    'Authorization': f'Bearer {access_token()}'
+  }
+  response = requests.get(url + "dashboard/uploaded-transactions?fromDate=2023-01-01&toDate=2023-01-12&client=", headers=headers)
+  if response.status_code == 200:
+    data = response.json()
+    print(data)
+  else:
+    print(f"Error: {response.status_code}")
+
+
+upload_transactions(token=access_token(), url="https://dev-api.pttapp.com/api/")
