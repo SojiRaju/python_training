@@ -110,3 +110,23 @@ def banking_get_transaction_suppliername(token, url):
 
 banking_get_transaction_suppliername(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
+
+def banking_update(token, url):
+  payload ={
+  "bankingId": "64b8fb5bd8977cadb2f8b94b",
+  "notes": "string1",
+  "status": "string",
+  "assignedTo": "6204d9d61eed04813999f227"
+  }
+
+  headers = {
+    'Authorization': f'Bearer {access_token()}'
+  }
+  response = requests.put(url + "banking/update", json=payload, headers=headers)
+  if response.status_code == 200:
+    print(f"Success : {response.json()}")
+  else:
+    print(f"Error: {response.status_code}")
+
+banking_update(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
