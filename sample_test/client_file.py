@@ -5,6 +5,7 @@ from asyncore import read
 import pytest
 import requests
 
+
 def basic_info(token, url):
     # Generate a random number for ID
     cId = random.randint(1004, 9999)  # Replace the range with desired values
@@ -57,7 +58,7 @@ def basic_info(token, url):
 
 
 def access_token():
-  pass
+    pass
 
 
 basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/")
@@ -237,8 +238,8 @@ def client_details(token, url, client_id):
 client_details(token=access_token(), url="https://dev-api.pttapp.com/api/",
                client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
-def trust_balance(token, url, client_id):
 
+def trust_balance(token, url, client_id):
     payload = {
         "client": f"{client_id}",
         "page": "",
@@ -260,11 +261,13 @@ def trust_balance(token, url, client_id):
 
     else:
         print(f"Error: {response.status_code}")
-trust_balance(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+trust_balance(token=access_token(), url="https://dev-api.pttapp.com/api/",
+              client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def trust_balance_export(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "page": "",
@@ -282,11 +285,13 @@ def trust_balance_export(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-trust_balance_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+trust_balance_export(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                     client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def client_file_report(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "fromDate": "2022-02-24",
@@ -308,11 +313,13 @@ def client_file_report(token, url, client_id):
 
     else:
         print(f"Error: {response.status_code}")
-client_file_report(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+client_file_report(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                   client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def client_file_export(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "fromDate": "2022-02-24",
@@ -331,11 +338,13 @@ def client_file_export(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-client_file_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+client_file_export(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                   client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def weekly_fortnightly_report(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "fromDate": "2023-02-24",
@@ -356,7 +365,10 @@ def weekly_fortnightly_report(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-weekly_fortnightly_report(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+weekly_fortnightly_report(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                          client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def weekly_fortnightly_export(token, url, client_id):
@@ -377,11 +389,13 @@ def weekly_fortnightly_export(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-weekly_fortnightly_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+weekly_fortnightly_export(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                          client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def bank_reconciliation(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "currency": "GBP",
@@ -402,7 +416,11 @@ def bank_reconciliation(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-bank_reconciliation(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+bank_reconciliation(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                    client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
 
 def bank_reconciliation_export(token, url, client_id):
     payload = {
@@ -422,11 +440,13 @@ def bank_reconciliation_export(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-bank_reconciliation_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+bank_reconciliation_export(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                           client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def banking_claim_summary(token, url, client_id):
-
     payload = {
         "client": f"{client_id}",
         "fromDate": "2023-02-24",
@@ -449,7 +469,10 @@ def banking_claim_summary(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-banking_claim_summary(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+banking_claim_summary(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                      client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
 
 
 def banking_claim_summary_export(token, url, client_id):
@@ -469,4 +492,7 @@ def banking_claim_summary_export(token, url, client_id):
         print(f"Error: {response.status_code}")
         data = response.json()
         print(data)
-banking_claim_summary_export(token=access_token(), url="https://dev-api.pttapp.com/api/", client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))
+
+
+banking_claim_summary_export(token=access_token(), url="https://dev-api.pttapp.com/api/",
+                             client_id=basic_info(token=access_token(), url="https://dev-api.pttapp.com/api/"))

@@ -1,26 +1,34 @@
 import json
-
 import requests
+
+
 def access_token():
-# To get Access Token
-  payload = {"username": "nismal", "password": "Simple2022$"}
-  url = "https://dev-api.pttapp.com/api/"
-  response = requests.post(url + "login", json=payload)
-  data = response.json()
-  token = data["authenticationResult"]["AccessToken"]
-  return token
+    # To get Access Token
+    payload = {"username": "nismal", "password": "Simple2022$"}
+    url = "https://dev-api.pttapp.com/api/"
+    response = requests.post(url + "login", json=payload)
+    data = response.json()
+    token = data["authenticationResult"]["AccessToken"]
+    return token
+
+
 access_token()
+
+
 def user_details(token, url):
-  headers = {
-   'Authorization': f'Bearer {access_token()}'
-   }
-  response = requests.get(url + "user-details", headers=headers)
-  if response.status_code == 200:
-   data = response.json()
-   print(data)
-  else:
-   print(f"Error: {response.status_code}")
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+    response = requests.get(url + "user-details", headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        print(data)
+    else:
+        print(f"Error: {response.status_code}")
+
+
 user_details(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
 
 def user_list(token, url):
     headers = {
@@ -32,6 +40,8 @@ def user_list(token, url):
         print(data)
     else:
         print(f"Error: {response.status_code}")
+
+
 user_list(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
 
@@ -45,6 +55,8 @@ def user_profile_download(token, url):
         print(data)
     else:
         print(f"Error: {response.status_code}")
+
+
 user_profile_download(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
 
@@ -58,6 +70,8 @@ def list_client(token, url):
         print(data)
     else:
         print(f"Error: {response.status_code}")
+
+
 list_client(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
 
@@ -72,7 +86,9 @@ def profile_update(token, url):
         print(f"success: {response.status_code}")
     else:
         print(f"Error: {response.status_code}")
-profile_update(token=access_token(),  url="https://dev-api.pttapp.com/api/")
+
+
+profile_update(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
 
 def client_list_search(token, url, null=None):
@@ -89,7 +105,9 @@ def client_list_search(token, url, null=None):
         print(formatted_json)
     else:
         print(f"Error: {response.status_code}")
-client_list_search(token=access_token(),  url="https://dev-api.pttapp.com/api/")
+
+
+client_list_search(token=access_token(), url="https://dev-api.pttapp.com/api/")
 
 
 def client_list_search_export(token, url, null=None):
@@ -102,7 +120,6 @@ def client_list_search_export(token, url, null=None):
         print(f"Success and status_code is: {response.status_code}")
     else:
         print(f"Error: {response.status_code}")
-client_list_search_export(token=access_token(),  url="https://dev-api.pttapp.com/api/")
 
 
-
+client_list_search_export(token=access_token(), url="https://dev-api.pttapp.com/api/")
