@@ -97,3 +97,24 @@ def booking_search(token, url):
 
 
 booking_search(token=access_token(), url="https://dev-api.pttapp.com/api/")
+
+
+def booking_claims_checks(token, url):
+    payload = {
+        "clientId": "635132a4dc29b4bad9e74d90",
+        "transactionId": "61f3614d14dfe6ab93037177"
+    }
+
+    headers = {
+        'Authorization': f'Bearer {access_token()}'
+    }
+
+    response = requests.post(url + "booking/claim-checks", json=payload, headers=headers)
+    if response.status_code == 200:
+        print(f"success: {response.json()}")
+
+    else:
+        print(f"Error: {response.status_code}")
+
+
+booking_claims_checks(token=access_token(), url="https://dev-api.pttapp.com/api/")
